@@ -1,27 +1,49 @@
-﻿
-void arreglos()
+
+    void arreglos()
 {
-    String[] nombre = new string[]
-{
-    "Fernanda", "Melvin", "Luis", "Brandon", "Yamileth"
-};
+    Console.Write("¿ingresa la cantidad de alumno?: ");
+    int numAlumnos = int.Parse(Console.ReadLine());
 
-    int[] notas = new int[]
+    string[] nombresAlumnos = new string[numAlumnos];
+    int[] notasAlumnos = new int[numAlumnos];
+
+
+    for (int i = 0; i < numAlumnos; i++)
     {
-    70,90,43,85,30
-    };
+        Console.Write($"Ingrese el nombre del alumno  {i + 1}: ");
+        nombresAlumnos[i] = Console.ReadLine();
 
-    int notaMasAlta = notas[0];
-    int indiceNotaMasAlta = 0;
+        Console.Write($"Ahora ingrese la nota del alumno  {i + 1}: ");
+        notasAlumnos[i] = int.Parse(Console.ReadLine());
+    }
 
-    for (int i = 0; i < notas.Length; i++)
+
+    int notaMasAlta = notasAlumnos[0];
+    string nombreNotaMasAlta = nombresAlumnos[0];
+
+    for (int i = 1; i < numAlumnos; i++)
     {
-        if (notas[i] > notaMasAlta)
+        if (notasAlumnos[i] > notaMasAlta)
         {
-            notaMasAlta = notas[i];
-            indiceNotaMasAlta = i;
+            notaMasAlta = notasAlumnos[i];
+            nombreNotaMasAlta = nombresAlumnos[i];
         }
     }
-    Console.WriteLine($"La nota más alta es del alumn@ {nombre[indiceNotaMasAlta]} con una nota de: {notaMasAlta}");
-};
+
+    int notaMasBaja = notasAlumnos[0];
+    string nombreNotaMasBaja = nombresAlumnos[0];
+
+    for (int i = 1; i < numAlumnos; i++)
+    {
+        if (notasAlumnos[i] < notaMasBaja)
+        {
+            notaMasBaja = notasAlumnos[i];
+            nombreNotaMasBaja = nombresAlumnos[i];
+        }
+    }
+    Console.WriteLine($"La nota de {nombreNotaMasAlta} mayor puntaje es : {notaMasAlta}");
+    Console.WriteLine($"La nota de {nombreNotaMasBaja} menor puntaje es : {notaMasBaja}\n");
+    
+}
+
 arreglos();
